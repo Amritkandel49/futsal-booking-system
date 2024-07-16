@@ -13,7 +13,7 @@ function SignUp() {
         phone_no: "",
         password: "",
         confirmPassword: "",
-        role: ""
+        role: "user"
     })
 
     const { fullName, username, email, phone_no, password, confirmPassword, role } = input;
