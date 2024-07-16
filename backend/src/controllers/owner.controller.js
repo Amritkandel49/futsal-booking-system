@@ -115,18 +115,18 @@ const loginOwner = asyncHandler(async (req, res) => {
     }
 });
 
-const ownerLogout = asyncHandler(async (req, res) => {
+const ownerLogout = asyncHandler(async(req, res) => {
     // const { owner } = req.owner;
     const options = {
-        httpOnly: true,
-        secure: true
-    }
+       httpOnly: true,
+       secure: true
+   }
 
-    return res
-    .status(200)
-    .clearCookie("accessToken", options)
-    .clearCookie("refreshToken", options)
-    .json(new ApiResponse(200, {}, "Owner logged Out"))
+   return res
+   .status(200)
+   .clearCookie("accessToken", options)
+   .clearCookie("refreshToken", options)
+   .json(new ApiResponse(200, {}, "Owner logged Out"))
 })
 
 

@@ -4,10 +4,11 @@ import Footer from "./components/Footer.jsx";
 
 
 export default function Layout({authenticatedResponse, setAuth, isAuthenticated}){
+    // console.log("Layout " ,authenticatedResponse);
     return (
         <>
             <Header authenticatedResponse = {authenticatedResponse} setAuth = {setAuth} isAuthenticated = {isAuthenticated}/>
-            <Outlet />
+            <Outlet setAuth = {setAuth}/>
             <Footer />
         </>
     );

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-const Login = () => {
+const Login = ({ setAuth }) => {
   const [input, setInput] = useState({
     email: '',
     password: '',
@@ -13,6 +14,7 @@ const Login = () => {
   const [errorMessage, setErrorMessage] = useState('');
 
   const { email, password, role } = input;
+  const navigate = useNavigate();
 
   const onChangeHandler = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
@@ -20,15 +22,10 @@ const Login = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-
     try {
       const response = await axios.post(
         `http://localhost:8000/api/v1/${role}s/login`,
-        {
-          email,
-          password,
-          role,
-        },
+        { email, password, role },
         {
           withCredentials: true,
           headers: {
@@ -37,12 +34,18 @@ const Login = () => {
         }
       );
 
-      setSuccessMessage('Login successful');
-      setErrorMessage('');
+      if (response.data.success) {
+        setSuccessMessage('Login successful');
+        setErrorMessage('');
+        setAuth(true);
+        // setTimeout(() => {
+            setSuccessMessage('');
+            //   // Redirect to home page after successful login
+            // }, 3000);
+        navigate('/'); 
 
-      setTimeout(() => {
-        setSuccessMessage('');
-      }, 3000);
+        
+      }
     } catch (error) {
       setErrorMessage(
         error.response ? error.response.data.message : 'Login failed. Please try again.'
