@@ -7,7 +7,7 @@ import {
 
 const router = Router();
 
-router.route('/get-all-turfs').get(getAllTurfs);
+router.route('/').get(getAllTurfs);
 router.route('/get-turf/:id').get(getTurfById);
 
 

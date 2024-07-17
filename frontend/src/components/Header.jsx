@@ -5,6 +5,7 @@ import { NavLink, Link, useNavigate } from 'react-router-dom';
 
 export default function Header({ authenticatedResponse, setAuth, isAuthenticated }) {
     // console.log(isAuthenticated);
+    const navigate = useNavigate();
 
     const AuthMessage = () => {
         // console.log(authenticatedResponse);
@@ -58,6 +59,10 @@ export default function Header({ authenticatedResponse, setAuth, isAuthenticated
         }
     }
 
+    const bookNowHandler = ()=>{
+        navigate('/turfs')
+    }
+
     return (
         <>
             <header className="shadow bg-inherit sticky z-50 top-0">
@@ -83,7 +88,9 @@ export default function Header({ authenticatedResponse, setAuth, isAuthenticated
                                 )
                             }
 
-                            <Link to="#"
+                            <Link 
+                                to="#"
+                                onClick={bookNowHandler}
                                 className='text-white hover:bg-gray-500 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-2xl px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none order-2'
                             >Book Now</Link>
                         </div>

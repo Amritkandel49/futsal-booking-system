@@ -5,7 +5,10 @@ import { RouterProvider, createBrowserRouter, Route, createRoutesFromElements } 
 import Home from './pages/Home.jsx';
 import Login from './pages/Login.jsx';
 import SignUp from './pages/SignUp.jsx';
+import Turfs from './pages/Turfs.jsx';
+
 import axios from 'axios';
+
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -67,12 +70,15 @@ export default function App() {
   }, [isAuthenticated]);
 
   const router = createBrowserRouter(
-    createRoutesFromElements(
+    createRoutesFromElements(<>
       <Route path="/" element={<Layout authenticatedResponse={authenticatedResponse} setAuth={setAuth} isAuthenticated={isAuthenticated} />}>
         <Route path="/" element={<Home />} />
         <Route exact path="/login" element={<Login setAuth={setAuth} />} />
         <Route exact path="/signup" element={<SignUp />} />
+        <Route path = "/turfs" element = {<Turfs />}/>
+
       </Route>
+      </>
     )
   );
 
