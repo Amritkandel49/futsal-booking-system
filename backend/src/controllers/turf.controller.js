@@ -8,7 +8,7 @@ import { ApiError } from "../utils/ApiError.js";
 const getAllTurfs = asyncHandler( async (req, res) => {
     try {
         const allTurfs = await pool.query("select * from turfs;");
-        console.log(allTurfs.rows)
+        // console.log(allTurfs.rows)
         return res
         .status(200)
         .json(

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import Layout from './Layout.jsx';
+import Layout from './pages/Layout.jsx';
 import './index.css';
 import { RouterProvider, createBrowserRouter, Route, createRoutesFromElements } from 'react-router-dom';
 import Home from './pages/Home.jsx';
 import Login from './pages/Login.jsx';
 import SignUp from './pages/SignUp.jsx';
 import Turfs from './pages/Turfs.jsx';
+import BookingLayout from './pages/BookingLayout.jsx';
 
 import axios from 'axios';
 
@@ -75,7 +76,10 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route exact path="/login" element={<Login setAuth={setAuth} />} />
         <Route exact path="/signup" element={<SignUp />} />
-        <Route path = "/turfs" element = {<Turfs />}/>
+        <Route path = "/turfs" element = {<Turfs />} />
+        <Route path = "/booking/:id" element = {<BookingLayout/>}>
+
+        </Route>
 
       </Route>
       </>
