@@ -1,4 +1,12 @@
+import {useNavigate} from 'react-router-dom'
+
 export default function Home() {
+    const navigate = useNavigate();
+
+    const bookNowHandler = () => {
+        navigate('/turfs');
+    }
+
     return (<>
         <div className="relative h-screen w-screen">
             <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url("soccer-background-vector-2159631.jpg")' }}>
@@ -14,7 +22,7 @@ export default function Home() {
                         </div>
                         <div className="my-auto flex gap-20 md-shrink-1 md-gap-4">
                             <button className="border-black bg-white h-14 rounded-md px-5 py-2 text-xl flex-shrink-1 hover:bg-blue-500 ">Register Turf</button>
-                            <button className="border-black bg-white h-14 rounded-md px-5 py-2 text-xl flex-shrink-1 hover:bg-blue-500">Book Now</button>
+                            <button onClick = {bookNowHandler} className="border-black bg-white h-14 rounded-md px-5 py-2 text-xl flex-shrink-1 hover:bg-blue-500">Book Now</button>
                         </div>
                     </div>
 
