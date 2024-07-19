@@ -11,7 +11,7 @@ export default function Footer(){
                     </div>
                     <div className="mb-6 md:mb-0 block">
                         <div>
-                            <h2 className='text-xl text-black text-center'>Resources</h2>
+                            <h2 className='text-xl text-customYellow text-center'>Resources</h2>
                         </div>
                         <div className="py-2 align-top">
                             <ul className="">
@@ -35,7 +35,7 @@ export default function Footer(){
                     </div>
                     <div className="mb-6 md:mb-0 block">
                         <div>
-                            <h2 className='text-xl text-black text-center'>Team Members</h2>
+                            <h2 className='text-xl text-customYellow text-center'>Team Members</h2>
                         </div>
                         <div className="py-2 align-top">
                             <ul className="">
@@ -63,7 +63,7 @@ export default function Footer(){
 
                     <div className="mb-6 md:mb-0 block">
                         <div className='mr-10'>
-                            <h2 className='text-xl text-black text-center'>Tools</h2>
+                            <h2 className='text-xl text-customYellow text-center'>Tools</h2>
                         </div>
                         <div className="py-2 align-top">
                             <ul className="">

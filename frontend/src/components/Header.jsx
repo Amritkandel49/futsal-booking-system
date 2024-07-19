@@ -22,7 +22,7 @@ export default function Header({ authenticatedResponse, setAuth, isAuthenticated
         }, [setAuth, isAuthenticated, authenticatedResponse]);
 
         return (
-                <h1 className='text-center text-2xl'>Welcome <span className="underline">{"  " + welcomeMsg}</span>!</h1>
+                <h1 className='text-customYellow text-center text-2xl'>Welcome <span className="underline">{"  " + welcomeMsg}</span>!</h1>
         );
     }
 
