@@ -48,13 +48,13 @@ create table Reviews (
     foreign key (turf_id) references Turfs(id)
 );
 -- creating bookings table
-CREATE TABLE IF NOT EXISTS public.bookings
+CREATE TABLE IF NOT EXISTS Bookings
 (
     id serial primary key,
     turf_id integer,
     user_id integer,
     booking_date date NOT NULL,
-    timeslot varchar(5) check (timeslot::text ~ '^[0-9]{1,2}+-+[0-9]{1,2}'),
+    timeslot varchar(5) check (timeslot::text ~ '^(1-2|2-3|3-4|4-5|5-6|6-7|7-8|8-9|9-10|10-11|11-12|12-13|13-14|14-15|15-16|16-17|17-18|18-19|19-20|20-21|21-22|22-23|23-24)$'),
     foreign key (turf_id) references Turfs(id) on delete cascade,
     foreign key (user_id) references Users(id) on delete cascade
 )

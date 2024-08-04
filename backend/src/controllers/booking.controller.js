@@ -5,16 +5,17 @@ import { ApiError } from "../utils/ApiError.js";
 
 
 const checkAvailability = async (turf_id, booking_date, time_slot) => {
-    try {
+    // console.log(turf_id, booking_date, time_slot);
+    // try {
         const result = await pool.query(
-            'SELECT * FROM bookings WHERE turf_id = $1 AND booking_date = $2 AND time_slot = $3',
+            'SELECT * FROM bookings WHERE turf_id = $1 AND booking_date = $2 AND timeslot = $3',
             [turf_id, booking_date, time_slot]
         );
         return result.rowCount === 0;                                   // No existing bookings
-    } catch (error) {
-        console.error("Error checking Availability: ", error);
-        throw new ApiError(500, "Error checking availability");
-    }
+    // } catch (error) {
+    //     console.error("Error checking Availability: ", error);
+    //     throw new ApiError(500, "Error checking availability");
+    // }
 };
 
 
@@ -25,33 +26,32 @@ const createBooking = asyncHandler(async (req, res) => {
 
     if (!user_id || !turf_id || !booking_date || !time_slot) {
         return res.status(400).json(
-            new ApiError(400, "All fields are required!")               //status code 400 for Bad Request
+            new ApiResponse(400, "All fields are required!")               //status code 400 for Bad Request
         );
     }
 
     const isAvailable = await checkAvailability(turf_id, booking_date, time_slot);
-    console.log(isAvailable)
 
     if (!isAvailable) {
         return res.status(409).json(                                    //status code 409 for collision
-            new ApiError(409, "Turf is not available for the selected date and time")
+            new ApiResponse(409, "Turf is not available for the selected date and time")
         );
     }
 
-    try {
+    // try {
         const result = await pool.query(
-            'INSERT INTO bookings (user_id, turf_id, booking_date, time_slot) VALUES ($1, $2, $3, $4) RETURNING *',
+            'INSERT INTO bookings (user_id, turf_id, booking_date, timeslot) VALUES ($1, $2, $3, $4) RETURNING *',
             [user_id, turf_id, booking_date, time_slot]
         );
 
         res.status(201).json(                                           //status code 201 for successfull booking
             new ApiResponse(201, result.rows[0], "Booking successful.") 
         );
-    } catch (error) {
-        res.status(500).json(                                           //status code 500 for internal server error                 
-            new ApiError(500, "Booking Failed")
-        );
-    }
+    // } catch (error) {
+    //     res.status(500).json(                                           //status code 500 for internal server error                 
+    //         new ApiResponse(500, "Booking Failed")
+    //     );
+    // }
 });
 
 

@@ -11,7 +11,7 @@ const router = Router();
 
 //router for Creating Booking
 
-router.post('/', createBooking);
+router.post('/create-booking', createBooking);
 
 //router for getting bookings for a specific turf
 
