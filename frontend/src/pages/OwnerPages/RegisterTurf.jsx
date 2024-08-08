@@ -1,16 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../../turf.css';
-import { useNavigate } from 'react-router-dom';
 
-function RegisterTurf({ isAuthenticated, setAuth }) {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!isAuthenticated) {
-      navigate('/login');
-    }
-  }, [isAuthenticated, navigate]); // Dependency array to avoid unnecessary navigation calls
+function RegisterTurf() {
 
   const [name, setName] = useState('');
   const [location, setLocation] = useState('');

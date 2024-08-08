@@ -8,7 +8,7 @@ import {
 const router = Router();
 
 router.route('/').get(getAllTurfs);
-router.route('/get-turf/:id').get(getTurfById);
+router.route('/get-turf-by-id/:id').get(getTurfById);
 
 
 export default router;

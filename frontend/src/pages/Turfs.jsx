@@ -39,7 +39,7 @@ function Turfs() {
                     />
                 </div>
                 <div className='turf-details'>
-                    <Link to={`/booking/${id}`} className='turf-name'>
+                    <Link to={`/user/booking/${id}`} className='turf-name'>
                         <h1>{name}</h1>
                     </Link>
                     <div className='turf-info'>

@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function OwnerSidebar() {
+function UserSidebar() {
     return (
         <div>
-            <h1 className='text-customYellow text-4xl px-1 py-2 text-center'>Owner Dashboard</h1>
+            <h1 className='text-customYellow text-4xl px-1 py-2 text-center'>User Dashboard</h1>
             <br/>
             <div className='m-1'>
-                <Link to="/owner">
+                <Link to="/user">
                     <div
                         className={'border-gray-700 border hover:bg-gray-500 h-16 py-2'}
                     >
@@ -17,11 +17,11 @@ function OwnerSidebar() {
             </div>
 
             <div className='m-1'>
-                <Link to="/owner/register-turf">
+                <Link to="/turfs">
                     <div
                         className={'border-gray-700 border hover:bg-gray-500 h-16 py-2'}
                     >
-                        <h2 className="text-3xl px-5 text-white">Register Turf</h2>
+                        <h2 className="text-3xl px-5 text-white">Book Turf</h2>
                     </div>
                 </Link>
             </div>
@@ -29,4 +29,4 @@ function OwnerSidebar() {
     )
 }
 
-export default OwnerSidebar
+export default UserSidebar
