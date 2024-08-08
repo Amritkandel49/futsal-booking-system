@@ -196,30 +196,29 @@ const getCurrentOwner = asyncHandler(async (req, res) => {
 })
 
 const registerTurf = asyncHandler( async (req, res) => {
-    const { name, location, price, isAvailabe = true } = req.body;
+    const { name, location, price, isAvailabe } = req.body;
     const owner_id = req.owner.id;
     const images = req.files;
-    // console.log(owner_id);
-
+    // console.log(images);
     if ([name, location, price].some((field) => field?.trim() === "")){
         return res
         .status(401)
-        .json(new ApiError(401, "Name, Location and Price fields are required."))
+        .json(new ApiResponse(401, "Name, Location and Price fields are required."))
     }
     
     let imageResponse_urls = [];
 
     if (images.length > 0){
         for (const image of images) {
-            try {
+            // try {
                 const response = await uploadOnCloudinary(image.path);
-                console.log(response.url);
+                // console.log(response);
                 imageResponse_urls.push(response.url);
-            } catch (error) {
-                return res
-                    .status(500)
-                    .json(new ApiError(500, "Error uploading images"));
-            }
+            // } catch (error) {
+            //     return res
+            //         .status(500)
+            //         .json(new ApiResponse(500, "Error uploading images"));
+            // }
         }
     }
 

@@ -42,7 +42,7 @@ const Login = ({ setAuth }) => {
             setSuccessMessage('');
             //   // Redirect to home page after successful login
             // }, 3000);
-        navigate('/'); 
+        navigate(`/${role}`); 
 
         
       }

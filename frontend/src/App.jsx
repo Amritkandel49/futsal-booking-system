@@ -7,8 +7,11 @@ import Login from './pages/Login.jsx';
 import SignUp from './pages/SignUp.jsx';
 import Turfs from './pages/Turfs.jsx';
 import BookingLayout from './pages/BookingLayout.jsx';
+import OwnerDashboard from './pages/OwnerPages/OwnerDashboard.jsx';
 
 import axios from 'axios';
+import RegisterTurf from './pages/OwnerPages/RegisterTurf.jsx';
+import OwnerHome from './pages/OwnerPages/OwnerHome.jsx';
 
 
 export default function App() {
@@ -31,7 +34,7 @@ export default function App() {
 
         if (userAuthRes.data.success) {
             setIsAuthenticated(true);
-            // console.log("App  ", userAuthRes.data.data);
+            console.log("App  ", userAuthRes.data.data);
             setAuthenticatedResponse(userAuthRes.data.data);
             return;
           }
@@ -49,7 +52,7 @@ export default function App() {
   
   
         if (ownerAuthRes.data.success) {
-          setIsAuthenticated(true);
+          setIsAuthenticated(false);
           // console.log("App  ", userAuthRes.data.data);
           setAuthenticatedResponse(ownerAuthRes.data.data);
           return;
@@ -77,10 +80,14 @@ export default function App() {
         <Route exact path="/login" element={<Login setAuth={setAuth} />} />
         <Route exact path="/signup" element={<SignUp />} />
         <Route path = "/turfs" element = {<Turfs />} />
-        <Route path = "/booking/:id" element = {<BookingLayout/>}>
 
+        <Route path = "/booking/:id" element = {<BookingLayout isAuthenticated = {isAuthenticated} setAuth = {setAuth}/>} />
+
+        <Route path = '/owner' element = {<OwnerDashboard isAuthenticated = {isAuthenticated} />}>
+          <Route exact path = '/owner' element = {<OwnerHome />}/>
+          <Route exact path = '/owner/register-turf' element = {<RegisterTurf isAuthenticated={isAuthenticated} setAuth={setAuth}/>}/>
         </Route>
-
+        {/* <Route path = "/register-turf" element = {<RegisterTurf isAuthenticated = {isAuthenticated} setAuth = {setAuth} />} /> */}
       </Route>
       </>
     )

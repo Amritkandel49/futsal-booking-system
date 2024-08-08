@@ -7,6 +7,10 @@ export default function Home() {
         navigate('/turfs');
     }
 
+    const registerButtonHandler = () => {
+        navigate('/owner/register-turf');
+    }
+
     return (<>
         <div className="relative h-screen w-screen">
             <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url("soccer-background-vector-2159631.jpg")' }}>
@@ -21,7 +25,7 @@ export default function Home() {
                             <p className="text-center text-wrap px-10 text-white text-xl">Welcome to KickStart—your go-to platform for easy and quick futsal court bookings. Find nearby courts, check availability in real-time, and manage your reservations effortlessly. Whether for a friendly game or a competitive match, KickStart makes booking a breeze. Get started and elevate your futsal experience today!</p>
                         </div>
                         <div className="my-auto flex gap-20 md-shrink-1 md-gap-4">
-                            <button className="border-black bg-white h-14 rounded-md px-5 py-2 text-xl flex-shrink-1 hover:bg-blue-500 ">Register Turf</button>
+                            <button onClick={registerButtonHandler} className="border-black bg-white h-14 rounded-md px-5 py-2 text-xl flex-shrink-1 hover:bg-blue-500 ">Register Turf</button>
                             <button onClick = {bookNowHandler} className="border-black bg-white h-14 rounded-md px-5 py-2 text-xl flex-shrink-1 hover:bg-blue-500">Book Now</button>
                         </div>
                     </div>

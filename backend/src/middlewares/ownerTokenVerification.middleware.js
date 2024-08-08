@@ -6,6 +6,7 @@ import { ApiResponse } from "../utils/ApiResponse.js";
 
 
 const ownerTokenVerification = asyncHandler(async(req, res, next) => {
+    // console.log('\nThis is hitting ownser side ....\n')
     try {
         const token = req.cookies?.accessToken || req.header("Authorization")?.replace("Bearer ", "")
 

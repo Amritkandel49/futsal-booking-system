@@ -6,12 +6,13 @@ import {
     getTurfBookings,
     cancelBooking
 } from "../controllers/booking.controller.js";
+import { ownerTokenVerification } from '../middlewares/ownerTokenVerification.middleware.js';
 
 const router = Router();
 
 //router for Creating Booking
 
-router.post('/create-booking', createBooking);
+router.post('/create-booking' ,createBooking);
 
 //router for getting bookings for a specific turf
 

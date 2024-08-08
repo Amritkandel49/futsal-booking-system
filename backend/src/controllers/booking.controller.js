@@ -61,7 +61,7 @@ const getTurfBookings = asyncHandler(async (req, res) => {
 
     if (!turf_id) {
         return res.status(400).json(
-            new ApiError(400, null, "Turf Id is Required!")
+            new ApiResponse(400, null, "Turf Id is Required!")
         );
     }
 
@@ -78,7 +78,7 @@ const getTurfBookings = asyncHandler(async (req, res) => {
         console.error("Error fetching turf bookings:", error);
 
         return res.status(500).json(
-            new ApiError(500, null, "Could not fetch the data")
+            new ApiResponse(500, null, "Could not fetch the data")
         );
     }
 });
@@ -91,7 +91,7 @@ const getUserBookings = asyncHandler(async (req, res) => {
 
     if (!user_id) {
         return res.status(400).json(
-            new ApiError(400, null, "User Id is required")
+            new ApiResponse(400, null, "User Id is required")
         );
     }
 
@@ -108,7 +108,7 @@ const getUserBookings = asyncHandler(async (req, res) => {
         console.error("Error fetching User Bookings: ", error);
 
         return res.status(500).json(
-            new ApiError(500, null, "Failed to retrieve User Bookings")
+            new ApiResponse(500, null, "Failed to retrieve User Bookings")
         );
     }
 });
@@ -120,7 +120,7 @@ const cancelBooking = asyncHandler(async(req, res) => {
 
     if (!booking_id) {
         return res.status(400).json(
-            new ApiError(400, null, "Booking ID is required")
+            new ApiResponse(400, null, "Booking ID is required")
         );
     }
 
@@ -144,7 +144,7 @@ const cancelBooking = asyncHandler(async(req, res) => {
         console.error("Error canceling booking:", error); // Log the error for debugging
 
         return res.status(500).json(
-            new ApiError(500, null, "Failed to cancel booking")
+            new ApiResponse(500, null, "Failed to cancel booking")
         );
     }
 });
