@@ -237,6 +237,22 @@ const registerTurf = asyncHandler( async (req, res) => {
     )
 })
 
+const getTurfByOwnerId = asyncHandler(async (req, res) => {
+    const {ownerid} = req.params;
+
+    try {
+        const response = await pool.query('select * from turfs where owner_id = $1;', [ownerid]);
+        console.log(response);
+        return res.status(200).json(
+            new ApiResponse(200, response.rows, 'Success')
+        )
+    } catch (error) {
+        return res.status(500).json(
+            new ApiResponse(500, null, 'Internal server error')
+        )
+    }
+})
+
 
 export { 
     registerOwner,
@@ -244,5 +260,6 @@ export {
     ownerLogout,
     refreshAccessToken,
     getCurrentOwner,
-    registerTurf
+    registerTurf,
+    getTurfByOwnerId
 }

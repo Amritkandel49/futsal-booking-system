@@ -14,6 +14,7 @@ import axios from 'axios';
 import RegisterTurf from './pages/OwnerPages/RegisterTurf.jsx';
 import OwnerHome from './pages/OwnerPages/OwnerHome.jsx';
 import UserDashBoard from './pages/UserPages/UserDashBoard.jsx';
+import MyTurfs from './pages/OwnerPages/MyTurfs.jsx';
 
 
 export default function App() {
@@ -101,6 +102,8 @@ export default function App() {
         <Route path='/owner' element={<OwnerDashboard isAuthenticated={isAuthenticated} currentOwner={authenticatedResponse.data} />}>
           <Route exact path='/owner' element={<OwnerHome currentOwner={authenticatedResponse.data} />} />
           <Route exact path='/owner/register-turf' element={<RegisterTurf />} />
+          <Route exact path='/owner/my-turfs' element={<MyTurfs currentOwner = {authenticatedResponse.data} />} />
+
         </Route>
 
       </Route>
