@@ -54,6 +54,35 @@ const createBooking = asyncHandler(async (req, res) => {
     // }
 });
 
+//get booked timeslot for  day and turf
+const getBookedTimeSlot = asyncHandler(async (req, res) => {
+    const {turf_id} = req.params;
+    const {booking_date} = req.query;
+    if (!(turf_id || booking_date)) {
+        return res.status(501).json(
+            new ApiResponse(501, null, "Turf id and booking date is required")
+        )
+    }
+
+    console.log(booking_date, turf_id)
+
+    try {
+        const bookedTimeSlotRes = await pool.query('select * from bookings where booking_date = $1 and turf_id = $2', [booking_date, turf_id]);
+    
+        // console.log(bookedTimeSlotRes.rows);
+        return res
+        .status(200)
+        .json(
+            new ApiResponse(200, bookedTimeSlotRes.rows, "Successfully obtained booked timeslots.")
+        )
+    } catch (error) {
+        return res.status(500).json(
+            new ApiResponse(400, "Could not obtain booked timeslots.")
+        )
+    }
+    
+})
+
 
 //get all the bookings for the turf
 const getTurfBookings = asyncHandler(async (req, res) => {
@@ -153,5 +182,6 @@ export{
     createBooking,
     getUserBookings,
     getTurfBookings,
-    cancelBooking
+    cancelBooking,
+    getBookedTimeSlot
 }

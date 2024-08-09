@@ -196,7 +196,7 @@ const getCurrentOwner = asyncHandler(async (req, res) => {
 })
 
 const registerTurf = asyncHandler( async (req, res) => {
-    const { name, location, price, isAvailabe } = req.body;
+    const { name, location, price } = req.body;
     const owner_id = req.owner.id;
     const images = req.files;
     // console.log(images);
@@ -222,7 +222,7 @@ const registerTurf = asyncHandler( async (req, res) => {
         }
     }
 
-    const registeredTurf = await pool.query("insert into Turfs (name, location, owner_id, price, isAvailable, images_urls) values ($1, $2, $3, $4, $5, $6) returning id, name, location, owner_id, price, isAvailable, images_urls, createdAt;", [name, location, owner_id, price, isAvailabe, imageResponse_urls])
+    const registeredTurf = await pool.query("insert into Turfs (name, location, owner_id, price, images_urls) values ($1, $2, $3, $4, $5) returning id, name, location, owner_id, price, isavailable, images_urls, createdAt;", [name, location, owner_id, price, imageResponse_urls])
 
     // console.log(registeredTurf);
     return res

@@ -24,7 +24,7 @@ const getTurfById = asyncHandler(async (req, res) => {
     const { id } = req.params;
     try {
         const requiredTurf = await pool.query("select * from turfs where id = $1;", [id]);
-        console.log(requiredTurf.rows)
+        // console.log(requiredTurf.rows)
         return res
         .status(200)
         .json(

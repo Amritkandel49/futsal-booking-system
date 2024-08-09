@@ -4,9 +4,11 @@ import {
     createBooking,
     getUserBookings,
     getTurfBookings,
-    cancelBooking
+    cancelBooking,
+    getBookedTimeSlot
 } from "../controllers/booking.controller.js";
 import { ownerTokenVerification } from '../middlewares/ownerTokenVerification.middleware.js';
+import { userTokenVerification } from "../middlewares/userTokenVerification.middleware.js"
 
 const router = Router();
 
@@ -21,6 +23,9 @@ router.get('/turf/:turf_id', getTurfBookings);
 //router for getting bookings for a specific user
 
 router.get('/user/:user_id', getUserBookings);
+
+// router for getting booked timeslots for a given date and a turf
+router.get('/turf/:turf_id/booked-time-slots',userTokenVerification, getBookedTimeSlot);
 
 //router for cancelling bookings
 

@@ -33,7 +33,7 @@ function Turfs() {
             <div className='turf-card'>
                 <div className='turf-image-container'>
                     <img
-                        src={images_urls[0]}
+                        src={images_urls ? images_urls[0] : ''}
                         alt="turf_image"
                         className="turf-image"
                     />
@@ -63,7 +63,7 @@ function Turfs() {
             <div className='turfs-header'>
                 <h1>Turfs</h1>
             </div>
-            <div className='turfs-list'>
+            <div className='turfs-list lg:block'>
                 {data.map((turf) => (
                     <EachTurf key={turf.id} turf={turf} />
                 ))}

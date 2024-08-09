@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.calender {
+    position: fixed;
+    right: 20px;
+    top: 100px;
+}
+
+
+.button-container {
+    margin-top: 5;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 3 columns of equal width */
+    gap: 10px; /* Optional: adds space between buttons */
+    max-width: 500px; /* Optional: limits the width of the container */
+    /* margin: auto; Optional: centers the container */
+  }
+  .button {
+    /* width: 50; */
+    padding: 10px;
+    background-color: gray;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }

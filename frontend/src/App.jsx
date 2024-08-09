@@ -54,7 +54,7 @@ export default function App() {
 
 
         if (ownerAuthRes.data.success) {
-          setIsAuthenticated(false);
+          setIsAuthenticated(true);
           // console.log("App  ", userAuthRes.data.data);
           setAuthenticatedResponse(ownerAuthRes.data.data);
           return;
