@@ -50,7 +50,7 @@ function MyTurfs({ currentOwner }) {
                         {
                             turfArray.map((eachTurf) => (
                                 <tr key={eachTurf.id} className='border border-gray-500'>
-                                    <td className='border border-gray-500'><h1 className='text-white text-center text-2xl px-2'>{eachTurf.index}</h1></td>
+                                    <td className='border border-gray-500'><h1 className='text-white text-center text-2xl px-2'>{turfArray.indexOf(eachTurf) + 1}</h1></td>
                                     <td className='border border-gray-500'><h1 className='text-white text-center text-2xl px-2'>{eachTurf.name}</h1></td>
                                     <td className='border border-gray-500'><h1 className='text-white text-center text-2xl px-2'>{eachTurf.location}</h1></td>
                                     <td className='border border-gray-500'><h1 className='text-white text-center text-2xl px-2'>{'Rs.' + eachTurf.price}</h1></td>

@@ -15,6 +15,7 @@ import RegisterTurf from './pages/OwnerPages/RegisterTurf.jsx';
 import OwnerHome from './pages/OwnerPages/OwnerHome.jsx';
 import UserDashBoard from './pages/UserPages/UserDashBoard.jsx';
 import MyTurfs from './pages/OwnerPages/MyTurfs.jsx';
+import MyBookings from './pages/UserPages/MyBookings.jsx';
 
 
 export default function App() {
@@ -90,6 +91,7 @@ export default function App() {
         {/* for user section */}
         <Route path='/user' element={<UserDashBoard isAuthenticated={isAuthenticated} currentUser={authenticatedResponse.data} />}>
           <Route exact path='/user' element={<UserHome currentUser={authenticatedResponse.data} />} />
+          <Route exact path='/user/my-bookings' element={<MyBookings currentUser={authenticatedResponse.data} />} />
         </Route>
 
 

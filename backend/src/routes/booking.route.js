@@ -2,7 +2,8 @@ import { Router } from 'express';
 
 import {
     createBooking,
-    getUserBookings,
+    getUserBookings_expired,
+    getUserBookings_future,
     getTurfBookings,
     cancelBooking,
     getBookedTimeSlot
@@ -22,7 +23,12 @@ router.get('/turf/:turf_id', getTurfBookings);
 
 //router for getting bookings for a specific user
 
-router.get('/user/:user_id', getUserBookings);
+router.get('/user/:user_id/expired',userTokenVerification, getUserBookings_expired);
+
+
+
+
+router.get('/user/:user_id/future',userTokenVerification, getUserBookings_future);
 
 // router for getting booked timeslots for a given date and a turf
 router.get('/turf/:turf_id/booked-time-slots',userTokenVerification, getBookedTimeSlot);

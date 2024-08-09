@@ -64,7 +64,7 @@ const getBookedTimeSlot = asyncHandler(async (req, res) => {
         )
     }
 
-    console.log(booking_date, turf_id)
+    // console.log(booking_date, turf_id)
 
     try {
         const bookedTimeSlotRes = await pool.query('select * from bookings where booking_date = $1 and turf_id = $2', [booking_date, turf_id]);
@@ -115,7 +115,7 @@ const getTurfBookings = asyncHandler(async (req, res) => {
 
 //get bookings for the user
 
-const getUserBookings = asyncHandler(async (req, res) => {
+const getUserBookings_expired = asyncHandler(async (req, res) => {
     const { user_id } = req.params;
 
     if (!user_id) {
@@ -126,7 +126,7 @@ const getUserBookings = asyncHandler(async (req, res) => {
 
     try {
         const result = await pool.query(
-            'SELECT * FROM bookings WHERE user_id = $1',
+            'select turfs.name, turfs.location, bookings.booking_date, bookings.timeslot from bookings join turfs on bookings.turf_id = turfs.id where user_id = $1 and booking_date < current_date-1 order by booking_date, timeslot asc;',
             [user_id]
         );
 
@@ -142,7 +142,32 @@ const getUserBookings = asyncHandler(async (req, res) => {
     }
 });
 
+const getUserBookings_future = asyncHandler(async (req, res) => {
+    const { user_id } = req.params;
 
+    if (!user_id) {
+        return res.status(400).json(
+            new ApiResponse(400, null, "User Id is required")
+        );
+    }
+
+    try {
+        const result = await pool.query(
+            'select turfs.name, turfs.location, bookings.booking_date, bookings.timeslot from bookings join turfs on bookings.turf_id = turfs.id where user_id = $1 and booking_date >= current_date-1 order by booking_date asc;',
+            [user_id]
+        );
+
+        return res.status(200).json(
+            new ApiResponse(200, result.rows, "User Bookings Retrieved Successfully!")
+        );
+    } catch (error) {
+        console.error("Error fetching User Bookings: ", error);
+
+        return res.status(500).json(
+            new ApiResponse(500, null, "Failed to retrieve User Bookings")
+        );
+    }
+});
 
 const cancelBooking = asyncHandler(async(req, res) => {
     const { booking_id } = req.params;
@@ -180,7 +205,8 @@ const cancelBooking = asyncHandler(async(req, res) => {
 
 export{
     createBooking,
-    getUserBookings,
+    getUserBookings_expired,
+    getUserBookings_future,
     getTurfBookings,
     cancelBooking,
     getBookedTimeSlot
