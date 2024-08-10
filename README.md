@@ -2,7 +2,7 @@
 
 Kickstart is a comprehensive platform that simplifies the process of registering, booking, and managing futsal turfs. This repository houses both the frontend and backend codebases, enabling a seamless experience for all users involved.
 
-<button href = "https://www.loom.com/share/69665b736adb440e8f14c98f7e088a7f?sid=3a23c583-a9f4-46df-ab72-fc82803bb8d6">Demo Video Link</button>
+# [Demo Video Link](https://www.loom.com/share/69665b736adb440e8f14c98f7e088a7f?sid=3a23c583-a9f4-46df-ab72-fc82803bb8d6)
 
 ## Table of Contents
 
