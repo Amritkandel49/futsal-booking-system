@@ -2,6 +2,8 @@
 
 Kickstart is a comprehensive platform that simplifies the process of registering, booking, and managing futsal turfs. This repository houses both the frontend and backend codebases, enabling a seamless experience for all users involved.
 
+<button href = "https://www.loom.com/share/69665b736adb440e8f14c98f7e088a7f?sid=3a23c583-a9f4-46df-ab72-fc82803bb8d6">Demo Video Link</button>
+
 ## Table of Contents
 
 - [Overview](#overview)
@@ -113,6 +115,6 @@ Kickstart provides a seamless experience for turf owners to register their futsa
 
 # Links
 ## [Github](github.com/AmritKandel49/futsal-booking-system)
-## [Backend] (https://futsal-backend-tylv.onrender.com)
+## [Backend](https://futsal-backend-tylv.onrender.com)
 
 ### We are extremely sorry that we could not deploy our project due to various reasons. We promise to complete this project and deploy it perfectly.
