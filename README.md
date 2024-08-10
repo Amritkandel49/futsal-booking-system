@@ -53,9 +53,8 @@ Kickstart provides a seamless experience for turf owners to register their futsa
 - JWT for authentication
 - Render for deployment
 
+
 ## Installation
-
-
 ### Backend
 
 1. *Clone the repository*
@@ -81,3 +80,36 @@ Kickstart provides a seamless experience for turf owners to register their futsa
 ```bash
     npm run dev
 ```
+
+## Configuration
+  ### Frontend
+  - Ensure that the API endpoints in your frontend are correctly pointing to your deployed backend.
+  - Update vercel.json if needed to handle routes properly for static hosting.
+  ### Backend
+  - Ensure your .env file is correctly set up with environment-specific settings.
+  - Make sure ALLOWED_HOSTS and CORS_ALLOWED_ORIGINS are configured properly for your deployment environment.
+  - Set up environment variables for sensitive information like JWT_SECRET, database credentials, and any other necessary configuration.
+
+
+## API Endpoints
+  - Key API endpoints include:
+  - User Registration: /api/auth/register
+  - User Login: /api/auth/login
+  - Register Turf: /api/turfs/register
+  - Get Turfs: /api/turfs
+  - Get User Bookings: /api/bookings/user
+  - Book Turf: /api/bookings
+  - Get Turf Bookings: /api/bookings/turf/:id
+
+## Deployment
+### Frontend
+  The frontend is deployed on Vercel. Ensure that your vercel.json is configured correctly for routing. Push your code to the repository, and Vercel will automatically deploy your application.
+
+## Backend
+  The backend is deployed on Render. Push your code to the repository, connect to Render, and set up the necessary environment variables for deployment.
+
+## Contributing
+  Contributions are welcome! Please fork the repository and submit a pull request with your changes. Make sure to write tests for any new features or bug fixes.
+
+# Links
+## [Github](github.com/AmritKandel49/futsal_booking_system)
