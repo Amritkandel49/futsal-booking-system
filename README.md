@@ -58,24 +58,26 @@ Kickstart provides a seamless experience for turf owners to register their futsa
 
 ### Backend
 
-1. *Clone the repository:*
+1. *Clone the repository*
 
-   ```
+```bash
    git clone https://github.com/yourusername/kickstart-futsal.git
    cd kickstart-futsal/backend
+```
 
 2. *Install Dependencies*
-    ```
-        npm install
+```bash
+    npm install
+```
 
 3. *Set up your PostgreSQL database and update .env with your database credentials.*
 
 4. *Run database migrations:*
-    ```
-    Copy code
-    npm run migrate
+```bash
+      npm run migrate
+```
 
 5. *Start the development server:*
-```
-    Copy code
+```bash
     npm run dev
+```
