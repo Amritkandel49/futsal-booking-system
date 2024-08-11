@@ -62,7 +62,7 @@ Kickstart provides a seamless experience for turf owners to register their futsa
 1. *Clone the repository*
 
 ```bash
-   git clone https://github.com/yourusername/kickstart-futsal.git
+   git clone https://github.com/amritkandel49/kickstart-futsal.git
    cd kickstart-futsal/backend
 ```
 
@@ -86,29 +86,19 @@ Kickstart provides a seamless experience for turf owners to register their futsa
 ## Configuration
   ### Frontend
   - Ensure that the API endpoints in your frontend are correctly pointing to your deployed backend.
-  - Update vercel.json if needed to handle routes properly for static hosting.
   ### Backend
   - Ensure your .env file is correctly set up with environment-specific settings.
   - Make sure ALLOWED_HOSTS and CORS_ALLOWED_ORIGINS are configured properly for your deployment environment.
   - Set up environment variables for sensitive information like JWT_SECRET, database credentials, and any other necessary configuration.
 
 
-## API Endpoints
-  - Key API endpoints include:
-  - User Registration: /api/auth/register
-  - User Login: /api/auth/login
-  - Register Turf: /api/turfs/register
-  - Get Turfs: /api/turfs
-  - Get User Bookings: /api/bookings/user
-  - Book Turf: /api/bookings
-  - Get Turf Bookings: /api/bookings/turf/:id
 
 ## Deployment
 ### Frontend
-  The frontend is deployed on Vercel. Ensure that your vercel.json is configured correctly for routing. Push your code to the repository, and Vercel will automatically deploy your application.
+  The frontend is deployed on render.
 
 ## Backend
-  The backend is deployed on Render. Push your code to the repository, connect to Render, and set up the necessary environment variables for deployment.
+  The backend is deployed on Render. Push the code to the repository, connect to Render, and set up the necessary environment variables for deployment.
 
 ## Contributing
   Contributions are welcome! Please fork the repository and submit a pull request with your changes. Make sure to write tests for any new features or bug fixes.
